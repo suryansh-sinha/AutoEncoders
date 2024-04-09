@@ -12,3 +12,21 @@ The latent space representation or code has 7 hidden nodes. So, we're compressin
 
 ## Decoder
 The decoder has 1 hidden layer having 256 nodes followed by ReLU activation. The output layer has 28*28 nodes followed by Sigmoid as activation.
+
+# Autoencoders Using CNN
+We're using a convolutional neural network in the encoder and decoder architectures here.
+
+## Encoder
+The encoder architecture has -
+- Conv2d, ReLU, MaxPool2d --> Output = `[16, 14, 14]`
+- Conv2d, ReLU, MaxPool2d --> Output = `[32, 6, 6]`
+- Conv2d --> Output = `[64, 1, 1]`
+
+## Latent Space Representation
+The latent space representation or code has size `[64, 1, 1]` thus representing an image by 64 values.
+
+## Decoder
+The decoder architecture has -
+- ConvTranspose2d, ReLU --> Output = `[32, 7, 7]`
+- ConvTranspose2d, ReLU --> Output = `[16, 14, 14]`
+- ConvTranspose2d, ReLU --> Output = `[1, 28, 28]`
